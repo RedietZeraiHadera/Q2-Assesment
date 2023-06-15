@@ -50,6 +50,9 @@ class product:
         total_value = self.price*self.quantity    
         return f"{total_value} is the total value to pay for the purchase of {self.name}" 
 
+#The following class will have student name age and grade as an input it will have methods to 
+#display student information and to calculate the average grades
+
 class Student:
     def __init__(self,name,age,grade):
         self.name = name
@@ -59,4 +62,37 @@ class Student:
     def display_info(self):
         return f"Hello{self.name} is {self.age} years old"
     # def calculate_avg(self):
+
+    #The following class will have input of customer informaton and flight information
+    #it will have methods to notify available flights, reserve seats and confirm notificatons and
+    # display customer information.
+
+class Booking:
+    def __init__(self,name,available_flights,destination_with_date):
+        self.name = name
+        self.available_flights = available_flights
+        self.destinaton_with_date = destination_with_date  
+    def reserve_seats(self,status_of_seat):
+        return f"{self.name} has reserved {status_of_seat}"
+    def available_flight(self):
+        if self.available_flights>=1 and self.destinaton_with_date >=1:
+            return f"There is an available flight"
+        else:
+            return f"Sorry, there is no available flight at the moment"   
+    def passenger_info(self):
+        return f"{self.name} has {self.available_flights} to {self.destinaton_with_date}" 
+#The following class will handle books it has methods to add new books, search for books by
+#title or author, keep track of available copies, and display book details.
+
+class Books:
+    def __init__(self,books,title,author):
+        self.books = books
+        self.title = title
+        self.author = author
+
+    def add_new_books(self,new_book):
+        self.books.append(new_book)  
+        return f"{self.books} have been updated"
+
+
          
