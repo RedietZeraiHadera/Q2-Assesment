@@ -84,15 +84,30 @@ class Booking:
 #The following class will handle books it has methods to add new books, search for books by
 #title or author, keep track of available copies, and display book details.
 
-class Books:
-    def __init__(self,books,title,author):
-        self.books = books
-        self.title = title
-        self.author = author
+    def __init__(self, name):
+        self.name = name
+        self.books = {}
 
-    def add_new_books(self,new_book):
-        self.books.append(new_book)  
-        return f"{self.books} have been updated"
+    def add(self, book):
+        self.books[book.title] = book
 
+    def search(self, title):
+        if title in self.books:
+            return self.books[title]
+        else:
+            return None
+
+    def get_available_copies(self, book):
+        if book in self.books:
+            return self.books[book].available_copies
+        else:
+            return f"Book not found"
+
+    def display_book_details(self, book):
+            print(f"Title: {book.title}")
+            print(f"Author: {book.author}")
+            print(f"Genre: {book.genre}")
+            print(f"Available copies: {book.available_copies}")
+        
 
          
